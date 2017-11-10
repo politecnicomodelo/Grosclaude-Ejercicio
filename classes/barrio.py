@@ -1,9 +1,11 @@
-from .continente import Continente
-class Barrio(Continente):
+from .lugar import Lugar
 
-    def __init__(self,c,n,co,p):
+
+class Barrio(Lugar):
+
+    def __init__(self, c, n, co, p):
+        Lugar.__init__(c,n,co)
         self.poblacion=p
-        Continente.__init__(c,n,co)
 
     def getPoblacion(self):
         return self.poblacion

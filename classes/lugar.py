@@ -1,6 +1,5 @@
-from .pais import Pais
 
-class Continente(object):
+class Lugar(object):
 
     def __init__(self, c, n, co):
         self.codigo=c
@@ -21,8 +20,4 @@ class Continente(object):
             else:
                 return x.encontrarLugar(c)
         return False
-
-
-    def agregarContenido(self,c,n,co):
-        self.contenido.append(Pais(c,n,co))
 
