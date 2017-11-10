@@ -17,3 +17,4 @@ class Menu(object):
         cod=input("Ingrese codigo de lugar")
 
     def opcion2(self):
+        pass
