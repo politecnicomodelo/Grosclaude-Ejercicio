@@ -20,4 +20,3 @@ class Lugar(object):
             else:
                 return x.encontrarLugar(c)
         return False
-

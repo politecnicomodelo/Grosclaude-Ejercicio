@@ -8,3 +8,12 @@ class Manager(object):
             else:
                 return x.encontrarLugar(c)
         return False
+    @classmethod
+    def eliminarLugar(cls,m,c):
+        for x in m:
+            if x.codigo==c:
+                m.remove(x)
+                return True
+            else:
+                return x.encontrarLugar(c)
+        return False

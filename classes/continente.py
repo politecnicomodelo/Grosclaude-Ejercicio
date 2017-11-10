@@ -26,3 +26,11 @@ class Continente(object):
     def agregarContenido(self,c,n,co):
         self.contenido.append(Pais(c,n,co))
 
+    def eliminarLugar(self,c):
+        for x in self.contenido:
+            if x.codigo==c:
+                self.contenido.remove(x)
+                return True
+            else:
+                return x.encontrarLugar(c)
+        return False

@@ -1,9 +1,5 @@
 from .menu_manager import Manager
 from .continente import Continente
-from .pais import Pais
-from .provincia import Provincia
-from .ciudad import Ciudad
-from .barrio import Barrio
 class Menu(object):
 
     def __init__(self):
@@ -20,6 +16,10 @@ class Menu(object):
             self.opcion1()
         elif x=="2":
             self.opcion2()
+        elif x=="3":
+            self.opcion3()
+        elif x=="4":
+            self.opcion4()
     def opcion1(self):
         cod=input("Ingrese codigo de lugar: ")
         lugar=Manager.encontrarLugar(self.continentes,cod)
@@ -67,8 +67,41 @@ class Menu(object):
             self.continentes.append(Continente(c,n,co))
         self.imprimirMenu()
 
-
-
-
-
-
+    def opcion3(self):
+        cod = input("Ingrese codigo de lugar: ")
+        lugar = Manager.encontrarLugar(self.continentes, cod)
+        if lugar == False:
+            print("No se encontro ese lugar")
+        else:
+            print("Deje en blanco si no quiere modificar")
+            c = input("Ingrese codigo nuevo:")
+            n = input("Ingrese nombre nuevo:")
+            co = []
+            while True:
+                print("Para dejar de ingresar ingrese -1 en x o en y")
+                x = input("Ingrese coordenada en x:")
+                y = input("Ingrese coordenada en y:")
+                if x!="" and y!="":
+                    if int(x) < 0 or int(y) < 0:
+                        break
+                    co.append((x, y))
+                break
+            if lugar.__class__.__name__=="Barrio":
+                p = input("Ingrese poblacion nueva:")
+                if p !="":
+                    lugar.poblacion=p
+            if c != "":
+                lugar.codigo = c
+            if n != "":
+                lugar.nombre = n
+            if co!=[]:
+                lugar.coordenadas=co
+        self.imprimirMenu()
+    def opcion4(self):
+        cod=input("Ingrese codigo de lugar: ")
+        lugar=Manager.encontrarLugar(self.continentes,cod)
+        if lugar==False:
+            print("No se encontro ese lugar")
+        else:
+            print("Se ha eliminado",Manager.eliminarLugar(self.continentes,cod))
+        self.imprimirMenu()
